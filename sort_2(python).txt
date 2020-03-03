@@ -1,0 +1,66 @@
+#1 counting_sort
+def counting_sort(a):
+    n=len(a)
+    count=[]
+    new=[]
+    for i in range(n+1):
+        count.append(0)
+    print("count = ",count)
+    
+    for j in range(n+1):
+        for i in range(n):
+            if a[i]==j:
+                count[j]+=1
+    print("first_count a=",count)
+    for i in range(n+1):
+        for j in range(count[i]):
+            new.append(i)
+    
+    return new
+        
+        
+
+
+import random
+
+a=[]
+N=10
+for i in range(N):
+    a.append(random.randint(0,N))
+    
+print("initial a=",a)
+res=counting_sort(a)
+print(res)
+
+#2 counting_sort2
+def counting_sort2(a,n,m):
+    b=[0]*(n+1)
+    count=[0]*(m+1)
+    for j in range(1,m+1):
+        count[j]=0
+    for j in range(1,n+1):
+        count[a[i]]+=1
+    for j in range(2,m+1):
+        count[j]+=count[j-1]
+    for i in range(n,0,-1):
+        b[count[a[i]]]=a[i]
+        count[a[i]]-=1
+    for i in range(1,n+1):
+        a[i]=b[i]
+
+#3 string sort(by length)
+#문자열 길이 순 정렬 문제
+
+n=int(input('문자열 개수를 입력해주세요 :'))
+a=[]
+for i in range(n):
+    a.append(input('문자열'))
+
+for i in range(1,n):
+    v,j=a[i],i
+    while len(v)<len(a[j-1]) and j>0:
+        a[j]=a[j-1]
+        j-=1
+    a[j]=v
+print(a)
+
