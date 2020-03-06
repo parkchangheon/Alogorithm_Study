@@ -1,0 +1,61 @@
+#BFS
+
+def bfs(graph,start):
+    visit=[]
+    queue=[start]
+    
+    while queue:
+        visit_check=queue.pop(0)
+        
+        if visit_check not in visit:
+            visit.append(visit_check)
+            
+            for node in graph[visit_check]:
+                if node not in visit:
+                    queue.append(node)
+    return visit
+                    
+            
+
+graph={
+    'A':set(['B','C']),
+    'B':set(['A','D','E']),
+    'C':set(['A','F']),
+    'D':set(['B','E']),
+    'E':set(['B','D']),
+    'F':set(['C'])
+}
+
+bfs(graph,'A')
+
+
+
+#DFS
+def dfs(graph,start):
+    visit=[]
+    
+    stack=[start,]
+    
+    while stack:
+        visit_check=stack.pop()
+        
+        if visit_check not in visit:
+            visit.append(visit_check)
+            
+            for node in graph[visit_check]:
+                if node not in visit:
+                    stack.append(node)
+                    
+    return visit
+        
+
+graph={
+    'A':set(['B','C']),
+    'B':set(['A','D','E']),
+    'C':set(['A','F']),
+    'D':set(['B','E']),
+    'E':set(['B','D']),
+    'F':set(['C'])
+}
+
+dfs(graph,'A')
