@@ -15,7 +15,7 @@ print(res)
 
 print(len(res))
     
-
+############개선
 
 n=int(input())
 ch=[0]*(n+1)
