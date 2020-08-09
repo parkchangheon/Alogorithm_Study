@@ -1,0 +1,22 @@
+#정다면체
+
+dim=[4,6,8,12,20]
+
+n,m=map(int,input().split())
+maxx=0
+res=[0]*(n+m+3)
+fin=[]
+
+for i in range(1,n+1):
+    for j in range(1,m+1):
+        mid=i+j
+        
+        res[mid]+=1
+        
+for i in range(n+m+1):
+    if maxx<res[i]:
+        maxx=res[i]
+        
+for i in range(n+m+1):
+    if res[i]==maxx:
+        print(i,end=' ')
