@@ -1,0 +1,6 @@
+a,b= map(int, input().split())
+print(a+b)
+
+#map 은 설정한 자료형으로 입력 시켜줌
+#입력을 받고자 하였으니, input()이고
+#두개를 입력 받고자 하였으므로, .split()사용
