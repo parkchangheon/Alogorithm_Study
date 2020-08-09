@@ -1,0 +1,9 @@
+#각 자릿수 합
+
+N=int(input())
+summ=0
+
+for i in str(N):
+    summ+=int(i)
+    
+summ
