@@ -1,0 +1,35 @@
+import random
+
+def digit_sum(x):
+    return 0
+    
+    
+N=int(input())
+
+arr=[]
+hap=0
+tmp=0
+out=0
+
+for i in range(N):
+    arr.append(random.randint(1,100))
+
+n=len(arr)
+
+for i in range(n):
+    res=arr[i]
+    
+    
+    while res!= 0:
+        hap=hap+(res%10)
+        res=res/10
+        
+    if tmp<hap:
+        tmp=hap
+        out=arr[i]
+        
+    hap=0
+    
+print(arr)
+print(out)
+        
