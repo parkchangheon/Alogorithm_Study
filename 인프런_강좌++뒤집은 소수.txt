@@ -1,0 +1,56 @@
+import random
+
+def reverse(x):
+    string=[]
+    hap=""
+    for i in str(x):
+        string.append(i)
+        
+    string.reverse()
+    
+    for i in range(len(string)):
+        hap+=string[i]
+    
+    hap=int(hap)
+    return hap
+    
+    
+def isPrime(x):
+    out=[]
+    n=len(x)
+    
+    for i in range(n):
+        for j in range(2,x[i]):
+            if x[i]%j == 0:
+                break
+            
+        else:
+            out.append(x[i])
+            
+    return out
+
+                
+            
+    
+n=int(input())
+res=[]
+result=[]
+
+for i in range(n):
+    res.append(random.randint(1,100))
+    
+print(res)
+
+
+for i in range(n):
+    res[i]=reverse(res[i])
+
+
+
+
+    
+result=isPrime(res)
+    
+print(res)
+print(result)
+
