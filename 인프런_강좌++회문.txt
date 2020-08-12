@@ -1,0 +1,16 @@
+ori=[]
+s=list(map(str,input()))
+
+for x in s:
+    ori.append(x)
+    
+s.reverse()
+
+n=len(s)
+for i in range(n):
+    if ori[i]!=s[i]:
+        print("NO")
+        break
+        
+else:
+    print("YES")
