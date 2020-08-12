@@ -7,6 +7,13 @@ for x in s:
 s.reverse()
 
 n=len(s)
+
+for i in range(n):
+    ori[i]=ori[i].lower()
+    s[i]=s[i].lower()
+
+print(ori)
+print(s)
 for i in range(n):
     if ori[i]!=s[i]:
         print("NO")
