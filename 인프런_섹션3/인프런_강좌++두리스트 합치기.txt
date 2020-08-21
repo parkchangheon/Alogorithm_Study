@@ -1,0 +1,25 @@
+#두 리스트 합치기
+import random
+n=int(input())
+a=[]
+b=[]
+for i in range(n):
+    a.append(random.randint(1,100))
+    
+a.sort()
+print(a)
+m=int(input())
+for i in range(m):
+    b.append(random.randint(1,100))
+    
+b.sort()
+print(b)
+
+c=a+b
+c.sort()
+c
+
+
+#근데 파이썬 sort를 사용하지 않는다면,
+# 각 리스트 인덱스 카운터를 사용하여, 총 인덱스 개수만큼 반복하면서
+# 특정 리스트에 각 리스트 크기 비교한 결과를 집어넣어준다.
