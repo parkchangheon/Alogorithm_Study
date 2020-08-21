@@ -2,10 +2,10 @@ import numpy as np
 
 card=[]
 
-for i in range(1,21):
+for i in range(0,21):
     card.append(i)
     
-for i in range(4):
+for i in range(10):
     s,e=map(int,input().split())
     
     c=int((e-s)/2)+1
@@ -14,6 +14,8 @@ for i in range(4):
         card[s+j],card[e-j]=card[e-j],card[s+j]
         
         
-        
+     
     print(card)
     
+card.pop(0)
+card
