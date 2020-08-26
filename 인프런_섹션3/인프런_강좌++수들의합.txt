@@ -1,0 +1,41 @@
+n,s=(map(int,input().split()))
+
+a= list(map(int,input().split()))
+
+count=0
+index=0
+hap=0
+
+for i in range(n):
+    index=i
+    hap+=a[index]
+    
+    if hap==s:
+        count+=1
+        hap=0
+        continue
+        
+    elif hap>s:
+        hap=0
+        continue
+        
+    while hap<s:
+        index+=1
+        if index==n:
+            break
+        hap+=a[index]
+        
+        if hap==s:
+            count+=1
+            hap=0
+            break
+            
+        elif hap>s:
+            hap=0
+            break
+            
+        
+print(count)
+            
+        
+        
