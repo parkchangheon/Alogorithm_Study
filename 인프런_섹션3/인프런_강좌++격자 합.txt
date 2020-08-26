@@ -1,0 +1,43 @@
+N=int(input())
+
+#split 까지가 한줄을 읽는 것이고 리스트화를 한것이고,
+#for 변수 없이 돌려서 N바퀴 돌린다
+a=[list(map(int,input().split())) for _ in range(N)]
+
+for x in a:
+    print(x)
+
+largest=-2147000000
+
+
+#행렬의 합을 구한다
+
+for i in range(N):
+    sum1=sum2=0
+    
+    for j in range(N):
+        sum1+=a[i][j]  #행 합
+        sum2+=a[j][i]  #열 합
+        
+    if sum1>largest:
+        largest=sum1
+         
+    if sum2>largest:
+        largest=sum2
+        
+sum1=sum2=0
+
+#대각선 합
+
+for i in range(N):
+    sum1+=a[i][i]
+    sum2+=a[i][N-i-1]
+    
+    if sum1>largest:
+        largest=sum1
+         
+    if sum2>largest:
+        largest=sum2
+    
+print(largest)
+    
