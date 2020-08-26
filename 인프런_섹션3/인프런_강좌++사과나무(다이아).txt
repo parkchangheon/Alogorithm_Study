@@ -1,0 +1,39 @@
+#사과나무 다이아몬드
+
+n=int(input())
+
+a=[list(map(int,input().split())) for _ in range(n)]
+
+m=int(n/2)
+
+mid=a[m][m]
+
+hap1=0
+hap2=0
+hap3=0
+
+for i in range(m):
+    for j in range(i+1):
+        hap1+=a[i][m-j]
+        hap1+=a[i][m+j]
+    hap1-=a[i][m]
+        
+print(hap1)
+
+for i in range(n):
+    hap2+=a[m][i]
+    
+print(hap2)
+    
+    
+for i in range(m):
+    for j in range(i+1):
+        hap3+=a[n-i-1][m-j]
+        hap3+=a[n-i-1][m+j]
+    hap3-=a[n-i-1][m]
+    
+print(hap3)
+    
+hap=hap1+hap2+hap3
+print(hap)
+        
