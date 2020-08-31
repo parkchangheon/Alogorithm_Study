@@ -1,0 +1,61 @@
+#곳감(모래시계)
+
+N=int(input('N을 입력'))
+M=int(input('M을 입력'))
+
+print('리스트를 입력')
+
+#arr=[list(map(int,input().split())) for _ in range(N)]
+
+arr=[[10, 13, 10, 12, 15],
+[12, 39, 30, 23, 11],
+[11, 25, 50, 53, 15],
+[19, 27, 29, 37, 27],
+[19, 13, 30, 13, 19]]
+
+for x in arr:
+    print(x)
+
+print('명령을 입력')
+
+p1=0
+p2=N-1
+hap=0
+
+for i in range(M):
+    
+    a,b,c=list(map(int,input().split()))
+    
+    
+    for j in range(c):
+        
+        if b==0:
+            tmp=arr[a-1].pop(0)
+            arr[a-1].append(tmp)
+        
+        if b==1:
+            tmp=arr[a-1].pop()
+            arr[a-1].insert(0,tmp)
+        
+    
+for x in arr:
+    print(x)
+        
+        
+for i in range(N):
+    
+    if p1<=p2:
+        for j in range(p1,p2+1):
+            hap+=arr[i][j]
+        p1+=1
+        p2-=1
+            
+    elif p1>p2:
+        for j in range(p2,p1+1):
+            hap+=arr[i][j]
+        p1+=1
+        p2-=1
+        
+
+
+print(hap)
