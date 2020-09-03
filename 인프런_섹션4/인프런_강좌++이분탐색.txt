@@ -1,0 +1,26 @@
+n,key=map(int,input().split())
+
+a=list(map(int,input().split()))
+
+a.sort()
+
+lt=0
+rt=n-1
+
+print(a)
+
+while lt<=rt:
+    mid=(lt+rt)//2
+    
+    
+    if key>a[mid]:   #오른쪽 
+        lt=mid
+        
+    elif key==a[mid]:
+        break
+    
+    elif key<a[mid]:  #왼쪽
+        rt=mid
+        
+        
+print(mid+1)
