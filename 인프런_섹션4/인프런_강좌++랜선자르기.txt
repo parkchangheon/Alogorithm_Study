@@ -1,0 +1,29 @@
+#랜선자르기 (결정알고리즘)
+
+k,n=list(map(int,input().split()))
+
+a=[]
+
+for i in range(k):
+    a.append(int(input()))
+
+
+hap=sum(a)
+res=hap//11
+
+count=0
+
+while count!=n:
+    
+    count=0
+    for i in range(k):
+        count+=(a[i]//res)
+        
+    if count!=n:
+        res-=1
+        
+    
+    
+    print(res)
+    
+print(res)
