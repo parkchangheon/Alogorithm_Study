@@ -1,0 +1,37 @@
+#격자판 회문수
+
+arr=[[2,4,1,5,3,2,6],[3,5,1,8,7,1,7],[8,3,2,7,1,3,8],[6,1,2,3,2,1,1],
+     [1,3,1,3,5,3,2],[1,1,2,5,6,5,2],[1,2,2,2,2,1,5]]
+count=0
+
+for i in range(7):
+    for j in range(3):
+        p1=j
+        p2=j+4
+        for k in range(2):
+            if arr[i][p1]!=arr[i][p2] :
+                break
+                
+            p1+=1
+            p2-=1
+            
+            if p1==p2:
+                count+=1
+        
+for i in range(7):
+    for j in range(3):
+        p1=j
+        p2=j+4
+        for k in range(2):
+            if arr[p1][i]!=arr[p2][i] :
+                break
+                
+            p1+=1
+            p2-=1
+            
+            if p1==p2:
+                count+=1
+
+print(count)
+                
+            
