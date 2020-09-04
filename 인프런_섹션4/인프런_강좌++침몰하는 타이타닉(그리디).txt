@@ -1,0 +1,42 @@
+#침몰하는 타이타닉(그리디)
+
+n,m=map(int,input().split())   # n은 승객 m은 무게
+
+weight=list(map(int,input().split()))
+
+boat=0
+
+weight.sort()
+
+
+cnt=0
+lt=0
+rt=n-1
+
+print(weight)
+
+for i in range(n//2+1):
+
+    if(rt<=lt):
+        break
+    
+    
+    if weight[rt]>m:
+        cnt+=1
+        rt-=1
+    
+    if (weight[lt]+weight[rt])<=m:
+        lt+=1
+        rt-=1
+        cnt+=1
+        
+    elif (weight[lt]+weight[rt])>=m:
+        rt-=1
+        cnt+=1
+
+
+
+        
+print(cnt)
+        
+    
