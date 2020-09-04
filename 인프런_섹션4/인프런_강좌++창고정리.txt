@@ -1,0 +1,15 @@
+#창고정리
+
+l=int(input())
+a=list(map(int,input().split()))
+m=int(input())
+
+
+for i in range(m):
+    lindex=a.index(max(a))
+    sindex=a.index(min(a))
+    
+    a[lindex]-=1
+    a[sindex]+=1
+    
+print(max(a)-min(a))
