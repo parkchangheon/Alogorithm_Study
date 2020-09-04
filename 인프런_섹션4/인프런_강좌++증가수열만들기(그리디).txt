@@ -1,0 +1,54 @@
+#증가 수열 만들기(그리디)
+
+n=int(input())
+
+a=list(map(int,input().split()))
+
+new=[0]
+string=[]
+
+lt=0
+
+idx=0
+
+for i in range(n):
+
+    tmp=0
+    rt=len(a)-1
+    if a[lt]<a[rt]:
+        if new[idx]<a[lt]:
+            tmp=a.pop(0)
+            new.append(tmp)
+            string.append('L')
+            idx+=1
+            
+        elif new[idx]<a[rt]:
+            tmp=a.pop(rt)
+            new.append(tmp)
+            string.append('R')
+
+            idx+=1
+        
+        
+        
+    elif a[lt]>a[rt]:
+        if new[idx]<a[rt]:
+            tmp=a.pop(rt)
+            new.append(tmp)
+            string.append('R')
+            idx+=1
+            
+        elif new[idx]<a[lt]:
+            tmp=a.pop(0)
+            new.append(tmp)
+            string.append('L')
+            idx+=1
+
+
+    
+new.pop(0)
+l=len(new)
+print(new)
+print()
+print(l)
+print(string)
