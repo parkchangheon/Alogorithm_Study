@@ -1,0 +1,42 @@
+#회의실 배정(그리디)
+
+n=int(input())
+
+time=[list(map(int,input().split())) for _ in range(n)]
+    
+time.sort()
+
+for x in time:
+    print(x)
+
+count=0
+
+for i in range(n):
+    tmp=1
+    start=time[i][0] 
+    end=time[i][1]
+        
+    for j in range(i+1,n):
+
+        if time[j][0]<end:
+            continue
+            
+        else:
+            start=time[j][0]
+            end=time[j][1]
+            tmp+=1
+            
+        if tmp>=count:
+            count=tmp
+            
+    print (tmp,count)
+    print(start,end)
+    print()
+    
+        
+
+print(count)
+
+
+--------------------------풀이--------------------------------
+
