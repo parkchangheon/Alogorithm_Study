@@ -1,0 +1,63 @@
+#가장 큰 수(스택)
+# 내가 푼것(오답)
+a,b=map(str,input().split())
+
+n=len(a)
+m=int(b)
+large=0
+cnt=0
+idx=0
+new=[]
+
+for i in range(m):
+    if (int(a[i]))>large:
+        large=i
+        
+for i in range(large):
+    cnt+=1
+    
+
+for i in range(large,n):
+    new.append(a[i])
+    
+new_len=len(new)-1  # 5
+while cnt!=m:
+    for i in range(1,new_len-1):
+        if new[i]<new[i+1]:
+            new.pop(i)
+            cnt+=1
+            break
+    
+
+
+res=""
+
+for i in range(n-m):
+    res+=new[i]
+    
+
+print(res)
+###############################################################################
+
+#해답
+import sys
+
+num,m=map(int,input().split())
+
+num=list(map(int,str(num)))
+
+stack=[]
+for x in num:
+    while stack and m>0 and stack[-1]<x:
+        stack.pop()
+        m-=1
+    stack.append(x)
+    
+
+if m!=0:
+    stack=stack[:-m]
+    
+res=''.join(map(str,stack))
+print(res)
+
+
