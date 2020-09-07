@@ -1,0 +1,22 @@
+#응급실
+import sys
+from collections import deque
+n,m=map(int,input().split())
+
+arr=[(pos,val) for pos,val in enumerate(list(map(int,input().split())))]
+
+cnt=0 #번째
+flag=True
+print(arr)
+while flag:
+    cur=arr.pop(0)
+    if any(cur[1]<x[1] for x in arr):
+        arr.append(cur)
+        
+    else:
+        cnt+=1
+        if cur[0]==m:
+            break
+            
+print(cnt)
+            
