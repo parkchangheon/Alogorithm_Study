@@ -1,0 +1,42 @@
+#후위식 연산
+
+s=input()
+n=len(s)
+
+calc=[]
+
+for i in range(n):
+    if s[i].isdecimal():
+        calc.append(int(s[i]))
+        
+    elif s[i]=='+':
+        b=calc.pop()
+        a=calc.pop()
+        
+        res=a+b
+        calc.append(res)
+        
+    elif s[i]=='-':
+        b=calc.pop()
+        a=calc.pop()
+        
+        res=a-b
+        calc.append(res)
+        
+    
+    elif s[i]=='*':
+        b=calc.pop()
+        a=calc.pop()
+        
+        res=a*b
+        calc.append(res)
+        
+        
+    elif s[i]=='/':
+        b=calc.pop()
+        a=calc.pop()
+        
+        res=a/b
+        calc.append(res)
+        
+print(int(calc[0]))
