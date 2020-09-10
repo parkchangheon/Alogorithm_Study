@@ -1,0 +1,14 @@
+def d2b(a):
+    if a==1:
+        print(a,end='')
+        
+    else:
+        r=a%2
+        a=a//2
+        d2b(a)
+        print(r,end='')
+        
+    
+
+N=int(input())
+d2b(N)
