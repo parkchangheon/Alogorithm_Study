@@ -25,5 +25,20 @@ print(res)
 
 
 
-#계수정렬2
+#교환 정렬
+#exchange sort
 
+def exchangesort(a,n):
+    tmp=0
+    for i in range(n-1):
+        for j in range(i,n):
+            if a[i]<a[j]:
+                a[i],a[j]=a[j],a[i]
+                
+        print(a)
+    
+    
+    
+a=[3,1,2,4,6,5]
+n=len(a)
+exchangesort(a,n)
