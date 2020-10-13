@@ -32,3 +32,27 @@ while i<n:
 cnt=len(people)
         
 print(cnt)
+
+====================================================
+n=int(input())
+
+a=[]
+for i in range(n):
+    w,h=map(int,input().split())
+    a.append([w,h])
+a.sort()
+
+cnt=0
+
+for i in range(n):
+    for j in range(i,n):
+        if a[i][1]<a[j][1]:
+            break
+        
+    else:
+        cnt+=1
+            
+               
+    
+print(a)
+print(cnt)
