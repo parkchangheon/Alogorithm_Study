@@ -13,3 +13,32 @@ for i in range(m):
     a[sindex]+=1
     
 print(max(a)-min(a))
+
+=============================================
+# 창고정리
+
+l=int(input())
+
+a=list(map(int,input().split()))
+
+m=int(input())
+min_idx=0
+max_idx=0
+
+for i in range(m):
+    maxx=max(a)
+    minn=min(a)
+    
+
+    
+    for j in range(n):
+        if a[j]==minn:
+            min_idx=j
+        if a[j]==maxx:
+            max_idx=j
+            
+    a[min_idx]+=1
+    a[max_idx]-=1
+    
+    if i==m-1:
+        print(maxx-minn)
