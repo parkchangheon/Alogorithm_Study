@@ -40,3 +40,25 @@ print(count)
 
 --------------------------풀이--------------------------------
 
+# 회의실 배정(그리디)
+
+n=int(input())
+
+a=[]
+for i in range(n):
+    s,e=map(int,input().split())
+    a.append((s,e))
+
+#빨리 끝나는게 중요
+a.sort(key=lambda x : (x[1],x[0]))     # 기준을 바꿔놓기 x[1]인덱스로 sort
+
+et=0
+cnt=0
+
+for s,e in a:
+    if s>=et:
+        et=e
+        cnt+=1
+        
+print(cnt)
+        
