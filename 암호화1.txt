@@ -1,0 +1,141 @@
+#caesar cipher
+
+def encipher(p,k):
+    c=''
+    for i in range(len(p)):
+        a=ord(p[i])
+        if a==32:
+            a=64
+        t=a+k
+        if t>90:
+            t-=27
+            
+        if t==64:
+            t=32
+        c+=chr(t)
+    return c
+
+
+def decode(p,k):
+    c=''
+    for i in range(len(p)):
+        a=ord(p[i])
+        if a==32:
+            a=91
+        t=a-k
+        if t<65:
+            t+=27
+        if t==91:
+            t=32
+        c+=chr(t)
+    return c
+    
+
+plaintext='SAVE PRIVATE RYAN'
+k=1
+print('평문 : ',plaintext)
+ciphertext=encipher(plaintext,k)
+print('암호문 : ',ciphertext)
+decodetext=decode(ciphertext,k)
+print('복호화 : ',decodetext)
+
+
+
+
+
+
+#문자변환표
+
+def encipher(p,k):
+    c=''
+    for i in range(len(p)):
+        a=ord(p[i])
+        if a==32:
+            a=0
+            
+        else:
+            a-=64
+        c+=k[a]
+    return c
+
+
+def decode(p,k):
+    c=''
+    for i in range(len(p)):
+        a=p[i]
+        idx=0
+        for j in range(27):
+            
+            if a==k[0]:
+                idx=32
+                
+            elif a==k[j]:
+                idx=j+64
+                
+        c+=chr(idx)
+        
+        
+    return c
+
+
+plaintext='SAVE PRIVATE RYAN'
+k='QHCBEJKARWSTUVD IOPXZFGLMNY'
+print('평문 : ',plaintext)
+ciphertext=encipher(plaintext,k)
+print('암호문 : ',ciphertext)
+
+decodetext=decode(ciphertext,k)
+print('복호화 : ',decodetext)
+
+
+
+
+#비즈네르 암호화 프로그램
+def encipher(p,k):
+    c=''
+    n=len(k)
+    for i in range(len(p)):
+        a=ord(p[i])
+        if a==32:
+            a=64
+        b=ord(k[i%n])-64
+        t=a+b
+        if t>90:
+            t-=27
+        if t==64:
+            t=32
+        c+=chr(t)
+        
+    return c
+
+def decode(p,k):
+    c=''
+    n=len(k)
+    for i in range(len(p)):
+        a=ord(p[i])
+        if a==32:
+            a=64
+        b=ord(k[i%n])-64
+        t=a-b
+        if t>90:
+            t-=27
+        if t<64:
+            t+=27
+        if t==64:
+            t=32
+        c+=chr(t)
+        
+    return c
+        
+
+
+plaintext='SAVE PRIVATE RYAN'
+k='ABC'
+print('평문 : ',plaintext)
+ciphertext=encipher(plaintext,k)
+print('암호문:',ciphertext)
+decodetext=decode(ciphertext,k)
+print('복호화 : ',decodetext)
+
+
+
