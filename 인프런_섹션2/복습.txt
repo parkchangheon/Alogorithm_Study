@@ -1,0 +1,358 @@
+# k번째 약수
+
+N,K=map(int,input().split())
+yak=[]
+
+for i in range(1,N):
+    if N%i ==0:
+        yak.append(i)
+        
+if K>=1:        
+    print(yak[K-1])
+
+
+
+
+
+
+# k 번째 수
+import sys
+T=int(input())
+for t in range(T):
+    n, s, e, k=map(int, input().split())
+    
+    a=list(map(int,input().split()))
+    
+    arr=a[s-1:e]
+    sort=sorted(arr)
+
+    print(sort[k-1])
+
+
+
+# k 번째 큰 수
+import random as rd
+card=[]
+N,K=map(int,input().split())
+for i in range(N):
+    card.append(rd.randint(1,100))
+
+print(card)
+
+hap=[]
+
+for i in range(N-2):
+    for j in range(i+1,N-1):
+        for k in range(j+1,N):
+            s=card[i]+card[j]+card[k]
+            hap.append(s)
+
+hap=set(hap)
+hap=sorted(hap,reverse=True)
+
+print(hap)
+
+print(hap[k-1])
+
+
+            
+
+
+# 대표값
+N=int(input())
+
+a=list(map(int,input().split()))
+
+avg=round(sum(a)/N)
+
+MIN=101
+min_score=0
+min_index=0
+
+for i in range(N):
+    if abs(a[i]-avg)<=MIN:
+        if min_score==a[i]:
+            continue
+        MIN=abs(a[i]-avg)
+        min_index=i+1
+        min_score=a[i]
+        
+    
+print(avg,min_index)
+
+
+
+
+
+
+# 정다면체
+
+N,M=map(int,input().split())
+res=[]
+
+for a in range(1,N+1):
+    for b in range(1,M+1):
+        s=a+b
+
+        res.append(s)
+
+res=sorted(res)
+print(res)
+
+idx=[]
+for i in range(N+M+1):
+    idx.append(0)
+    
+for i in range(len(res)):
+    idx[res[i]]+=1
+    
+print(idx)
+
+m=max(idx)
+    
+for i in range(len(idx)):
+    if idx[i]==m:
+        print(i, end=' ')
+
+        
+
+
+
+
+
+
+
+
+
+
+
+import random as rd
+
+def digit_sum(x):
+    l=len(x)
+    
+    maxi=-1
+    idx=0
+    for i in range(l):
+        
+        tmp=str(x[i])
+        hap=0
+        l=len(tmp)
+        
+        for j in range(l):
+            hap+=int(tmp[j])
+            
+        if hap>maxi:
+            maxi=hap
+            idx=i
+            
+    return x[idx]
+            
+        
+    
+    
+    
+    
+N=int(input())
+arr=[]
+
+for i in range(N):
+    arr.append(rd.randint(1,100))
+    
+res=digit_sum(arr)
+    
+print(arr)
+print(res)
+
+
+
+
+
+
+
+# 소수 에라토스테네스 체
+
+N=int(input())
+arr=[2]
+
+
+for i in range(2,N+1):
+    
+    for j in range(2,i):
+        
+        if i%j==0:
+            break
+            
+        else:
+            if j==i-1:
+                arr.append(i)
+        
+    
+    
+print(arr)
+print(len(arr))
+
+
+
+
+
+
+# 뒤집은 소수
+import random as rd
+
+N=int(input())
+arr=[]
+
+for i in range(N):
+    arr.append(rd.randint(1,2000))
+    
+print(arr)
+res=[]
+
+for i in range(N):
+    tmp=str(arr[i])
+    l=len(tmp)
+   
+    hap=""
+    for j in range(l-1,-1,-1):
+        hap=hap+tmp[j]
+        
+    res.append(int(hap))
+    
+print(res)
+        
+        
+    
+
+
+#주사위 게임
+
+N=int(input())
+M=0
+
+for i in range(N):
+    
+    tmp=[]
+    btw=[0,0,0,0,0,0,0]
+    big=0
+    idx=0
+    res=0
+    for j in range(3):
+        su=rd.randint(1,6)
+        tmp.append(su)
+        btw[su]+=1
+        
+    for j in range(7):
+        if btw[j]>=big:
+            big=btw[j]
+            idx=j
+
+            
+    if big==3:
+        res=10000+idx*1000
+        
+    elif big==2:
+        res=1000+idx*100
+        
+    else:
+        res=idx*100
+        
+    if res>M:
+        M=res
+
+    print(tmp)
+    print(M)
+    
+print(M)
+
+
+
+
+
+
+
+
+
+
+
+#점수계산
+import random as rd
+
+N=int(input())
+arr=[]
+hap=0
+tmp=0
+
+
+for i in range(N):
+    arr.append(rd.randint(0,1))
+    
+print(arr)
+
+for i in range(N):
+    
+    
+    if i==0:
+        if arr[i]==1:
+            hap+=1
+            tmp=1
+        continue
+
+            
+        
+    else:
+        if arr[i]==1:
+            if arr[i-1]==1:
+                hap+=(tmp+1)
+                tmp+=1
+                
+            else:
+                hap+=1
+                tmp=1
+                
+        continue
+            
+            
+            
+    tmp=0
+            
+
+            
+print(hap)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
