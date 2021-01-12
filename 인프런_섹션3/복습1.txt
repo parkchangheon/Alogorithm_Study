@@ -1,0 +1,217 @@
+#회문 문자열 검사
+
+N=int(input())
+
+arr=[]
+for i in range(N):
+    arr.append(input())
+    
+print(arr)
+
+for x in arr:
+    for i in range(int(len(x)/2)):
+        if x[i]!=x[len(x)-1-i]:
+            print('No')
+            break
+            
+    else:
+        print('Yes')
+        
+
+
+
+
+# 숫자만 추출
+
+N=input()
+arr=[]
+
+
+for x in N:
+    if not(x.isalpha()):
+        arr.append(x)
+        
+        
+i=0
+
+while i !=len(arr):
+    if arr[i]=='0':
+        arr.pop(0)
+        
+    else:
+        break
+        
+res=''
+        
+for i in range(len(arr)):
+    res+=arr[i]
+    
+res=int(res)
+
+cnt=0
+for i in range(1,res+1):
+    if res%i==0:
+        cnt+=1
+        
+print(res)
+print(cnt)
+    
+
+
+
+
+
+# 카드 역배치
+
+arr=[]
+
+for i in range(21):
+    arr.append(i)
+    
+    
+for i in range(10):
+    a,b=map(int,input().split())
+    
+    while a<=b:
+        arr[a],arr[b]=arr[b],arr[a]
+        a+=1
+        b-=1
+        
+    
+    
+arr.pop(0)
+
+print(arr)
+
+
+
+
+
+# 두리스트 합치기
+import random as rd
+
+a=[]
+b=[]
+
+N=int(input())
+for i in range(N):
+    a.append(rd.randint(1,10))
+    
+a.sort()
+    
+print(a)
+    
+M=int(input())
+
+for i in range(M):
+    b.append(rd.randint(1,10))
+    
+print(b)
+    
+    
+
+b.sort()
+
+
+ia=0
+ib=0
+res=[]
+
+while ia<N and ib<M:
+    if a[ia]<=b[ib]:
+        res.append(a[ia])
+        ia+=1
+        
+    elif a[ia]>=b[ib]:
+        res.append(b[ib])
+        ib+=1
+        
+# 남은 배열 후처리 과정
+
+if ia<N:
+    res=res+a[ia:]
+    
+if ib<M:
+    res=res+b[ib:]
+        
+print(res)
+    
+    
+
+
+
+
+# 수들의 합
+
+arr=[]
+
+N,M=map(int,input().split())
+
+arr=list(map(int,input().split()))
+    
+for i in range(N):
+    print(arr[i],end=' ')
+    
+cnt=0
+for i in range(N):
+    hap=0
+    for j in range(i,N):
+        hap+=arr[j]
+        if hap==M:
+            cnt+=1
+            break
+            
+        if hap>M:
+            break
+            
+        
+        
+print()
+print(cnt)
+        
+
+
+
+
+
+#격자판 최대합 
+
+N=int(input())
+arr=[]
+m=0
+for i in range(N):
+    line=[]
+    for j in range(N):
+        line.append(rd.randint(1,10))
+        
+    arr.append(line)
+    
+for i in range(N):
+    if m<sum(arr[i]):
+        m=sum(arr[i])
+    
+for i in range(N):
+    hap=0
+    for j in range(N):
+        hap=hap+arr[j][i]
+        
+    if m<hap:
+        m=hap
+        
+tmp=0        
+for i in range(N):
+    tmp+=arr[i][i]
+    if tmp>m:
+        m=tmp
+        
+tmp=0        
+for i in range(N):
+    tmp+=arr[N-1-i][N-1-i]
+    if tmp>m:
+        m=tmp
+        
+        
+print(arr)
+print(m)
+        
+
