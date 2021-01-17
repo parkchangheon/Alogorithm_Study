@@ -1,0 +1,277 @@
+# 사과나무 (다이아모든)
+
+import random as rd
+
+N=int(input())
+while N%2 != 1:
+    N=int(input())
+
+arr=[]
+
+
+for i in range(N):
+    list=[]
+    for j in range(N):
+        list.append(rd.randint(1,10))
+        
+    arr.append(list)
+    
+t=int(N/2)
+hap=0
+
+print(arr)
+
+for i in range(t):
+    for j in range(t-i,t+i+1):
+        hap+=arr[i][j]
+        hap+=arr[N-1-i][j]
+        
+hap+=sum(arr[t])
+
+print(hap)
+
+
+
+
+
+
+# 곳감(모래시계)
+import random as rd
+
+N=int(input())
+while N%2==0 or (N<3 or N>20):
+    print('3 이상 홀수를 입력해주세요')
+    N=int(input())
+    
+arr=[]
+
+for i in range(N):
+    list=[]
+    for j in range(N):
+        list.append(rd.randint(1,10))
+        
+    arr.append(list)
+    
+print(arr)
+
+M=int(input())
+
+for i in range(M):
+    a,b,c=map(int,input().split())
+    
+    for i in range(c):
+
+            
+        if b==0:
+            tmp=arr[a].pop(0)
+            arr[a].append(tmp)
+            
+        if b==1:
+            tmp=arr[a].pop()
+            arr[a].insert(0,tmp)
+            
+        
+            
+    print(arr)
+            
+hap=0
+for i in range(int(N/2)):
+    for j in range(0+i,N-i):
+        hap+=arr[i][j]
+        
+        hap+=arr[N-1-i][j]
+        
+hap+=arr[int(N/2)][int(N/2)]
+
+print(hap)
+        
+
+
+
+
+
+
+
+# 봉우리
+
+import random as rd
+
+N=int(input())
+
+arr=[[0]*(N+2) for i in range(N+2)]
+print(arr)
+
+for i in range(1,N+1):
+    
+    for j in range(1,N+1):
+        arr[i][j]=rd.randint(1,10)
+    
+print(arr)
+print()
+count=0
+for i in range(1,N+1):
+    for j in range(1,N+1):
+        tmp=arr[i][j]
+        
+        if tmp>arr[i-1][j] and tmp>arr[i+1][j] and tmp>arr[i][j-1] and tmp>arr[i][j+1]:
+            count+=1
+            
+print(count)
+
+
+
+
+
+# 스도쿠
+
+fil=[0]*10
+arr=[[1,4,3,6,2,8,5,7,9],[5,7,2,1,3,9,4,6,8],[9,8,6,7,5,4,2,3,1],
+    [3,9,1,5,4,2,7,8,6],[4,6,8,9,1,7,3,5,2],[7,2,5,8,6,3,9,1,4],
+    [2,3,7,4,8,1,6,9,5],[6,1,9,2,7,5,8,4,3],[8,5,4,3,9,6,1,2,7]]
+flag=0
+
+
+    
+    
+
+for i in range(0,9,3):
+    for j in range(i,i+3):
+        for k in range(j,j+3):
+            if fil[arr[j][k]]==0:
+                fil[arr[j][k]]=1
+                
+        print(fil)
+                
+    
+                
+    else:
+        flag=1
+        print('No')
+        break
+        
+    
+        
+    
+    
+    
+        
+else:
+
+    for i in range(9):
+        for j in range(9):
+            if fil[arr[i][j]]==0:
+                fil[arr[i][j]]=1
+
+        else:
+            flag=1
+            print('No')
+            break
+
+
+        for j in range(9):
+            if fil[arr[j][i]]==0:
+                fil[arr[j][i]]=1
+
+        else:
+            flag=1
+            print('No')
+            break
+
+        fil=[0]*10
+
+
+if flag==0:
+    print('YES')
+
+
+
+
+
+
+
+===스도쿠 정답===
+
+
+
+
+def check(a):
+    for i in range(9):
+        ch1=[0]*10
+        ch2=[0]*10
+        
+        for j in range(9):
+            ch1[a[i][j]]=1 #가로
+            ch2[a[j][i]]=1 #세로 
+            
+        if sum(ch1)!=9 or sum(ch2)!=9:
+            print(sum(ch1),sum(ch2))
+            return False
+        
+        
+    for i in range(3):
+        for j in range(3):  # 9개의 그룹을 보겠단거고
+            ch3=[0]*10
+            for k in range(3):
+                for s in range(3):
+                    ch3[a[i*3+k][j*3+s]]=1
+            if sum(ch3)!=9:
+                
+                return False
+    return True
+
+arr=[[1,4,3,6,2,8,5,7,9],[5,7,2,1,3,9,4,6,8],[9,8,6,7,5,4,2,3,1],
+    [3,9,1,5,4,2,7,8,6],[4,6,8,9,1,7,3,5,2],[7,2,5,8,6,3,9,1,4],
+    [2,3,7,4,8,1,6,9,5],[6,1,9,2,7,5,8,4,3],[8,5,4,3,9,6,1,2,7]]
+
+res=check(arr)
+
+print(res)
+
+
+
+
+
+# 격자판 회문수 
+import random as rd
+N=7
+arr=[[6, 2, 8, 2, 6, 4, 9], [3, 6, 9, 9, 1, 8, 6], [1, 5, 4, 9, 4, 4, 7], [3, 5, 1, 6, 9, 8, 5],
+     [6, 5, 2, 9, 5, 4, 7], [8, 4, 9, 7, 6, 7, 9], [4, 8, 3, 1, 9, 6, 8]]
+    
+count=0
+for i in range(7):
+    for j in range(3):
+        p1=j
+        p2=j+4
+        for k in range(2):
+            if arr[i][p1]!=arr[i][p2] :
+                break
+                
+            p1+=1
+            p2-=1
+            
+            if p1==p2:
+                count+=1
+        
+for i in range(7):
+    for j in range(3):
+        p1=j
+        p2=j+4
+        for k in range(2):
+            if arr[p1][i]!=arr[p2][i] :
+                break
+                
+            p1+=1
+            p2-=1
+            
+            if p1==p2:
+                count+=1
+
+print(count)
+                
+
+
+
+
+
+
+
