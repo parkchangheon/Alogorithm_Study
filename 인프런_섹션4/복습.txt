@@ -1,0 +1,380 @@
+# 이분검색
+
+N,M=map(int,input().split())
+
+arr=list(map(int,input().split()))
+
+while len(arr)>N:
+    arr.pop()
+    
+arr=sorted(arr)
+l=len(arr)
+
+for i in range(l):
+    if M==arr[i]:
+        print(i+1)
+        break
+        
+    else:
+        if i==l-1:
+            print('NULL')
+        
+
+
+
+
+
+
+# 랜선 자르기 알고리즘
+import random 
+
+K,N =map(int,input().split())
+
+arr=[]
+for i in range(K):
+    arr.append(random.randint(1,20))
+
+    
+print(arr)
+
+mx=int(sum(arr)/N)
+print(mx)
+
+count=0
+idx=0
+while count<=N:
+    count=0
+    for i in range(K):
+        count+=int(arr[i]/mx)
+        
+    if count<N:
+        mx-=1
+        
+    elif count==N:
+        break
+    
+        
+        
+print(mx)
+print(count)        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 뮤직 비디오 (결정 알고리즘) ****
+
+
+def count(cap):
+    cnt=1 # dvd 한장 
+    s=0
+    for x in arr:
+        if s+x>cap:
+            cnt+=1
+            s=x  #초과하면 x부터 다시 초기화
+        else:
+            s+=x #초과 되지 않았다면 합해준다
+            
+    return cnt
+
+n,m=map(int,input().split())
+arr=list(map(int,input().split()))
+maxx=max(arr)
+lt=1
+rt=sum(arr)
+
+res=0
+
+while lt<=rt:
+    mid=(lt+rt)//2
+    
+    if mid>=maxx and  count(mid)<=m:
+        res=mid
+        rt=mid-1
+        
+    else:
+        lt=mid+1
+        
+print(res)
+
+
+
+
+
+
+
+
+
+# 회의실 배정 (그리디)
+
+n=int(input())
+
+arr=[[1,4],[2,5],[2,3],[3,5],[5,7],[1,2]]
+# for i in range(n):
+#     l=[]
+#     l.append(list(map(int,input().split())))
+        
+#     arr.append(l)
+    
+
+
+cnt=1
+maxx=0
+
+arr.sort()
+
+print(arr)
+
+for i in range(n-1):
+    cnt=1
+    start=arr[i][0]
+    end=arr[i][1]
+    
+    for j in range(i+1,n):
+        if end<=arr[j][0]:
+            start=arr[j][0]
+            end=arr[j][1]
+            cnt+=1
+            
+        if start==arr[j][0]:
+            if end>arr[j][1]:
+                end=arr[j][1]
+                
+        if cnt>maxx:
+            maxx=cnt
+            
+        
+                
+    
+                
+print(maxx)
+    
+
+
+
+
+
+
+
+
+
+
+# 씨름 선수 (그리디)
+
+N=int(input())
+arr=[]
+#arr=[[172,67],[183,65],[180,70],[170,72],[181,60]]
+
+for i in range(N):
+    a=list(map(int,input().split()))
+    arr.append(a)
+    
+print(arr)
+
+
+arr.sort()
+print(arr)
+
+cnt=1
+
+for i in range(N-1):
+    for j in range(i+1,N):
+        if arr[i][1]<arr[j][1]:
+            break
+            
+    else:
+        print(arr[i])
+        cnt+=1
+        
+print(arr[N-1])
+print(cnt)
+
+
+
+
+
+
+
+
+# 창고정리
+
+L=int(input())
+
+#arr=list(map(int,input().split()))
+arr=[69,42,68,76,40,87,14,65,76,81]
+print(arr)
+
+M=int(input())
+
+for i in range(M):
+    maxx=max(arr)
+    minn=min(arr)
+    max_idx=arr.index(maxx)
+    min_idx=arr.index(minn)
+    
+    arr[max_idx]-=1
+    arr[min_idx]+=1
+    
+    if i==M-1:
+        print(max(arr)-min(arr))
+    
+
+print(arr)
+
+
+
+
+
+
+
+# 침몰하는 타이타닉(그리디)
+
+N,M=map(int,input().split())
+
+arr=[10,20,50,60,90,100]
+arr.sort()
+lt=0
+rt=N-1
+
+cnt=0
+while lt<=rt:
+    if lt==rt:
+        cnt+=1
+        break
+        
+        
+    else:
+        if arr[lt]+arr[rt]>M:
+            rt-=1
+            cnt+=1
+            
+        elif arr[lt]+arr[rt]<=M:
+            lt+=1
+            rt-=1
+            cnt+=1
+            
+
+print(cnt)
+    
+    
+    
+
+
+
+
+
+
+# 증가수열 만들기 (그리디)
+
+N=int(input())
+
+arr=[3,2,10,1,5,4,7,8,9,6]
+
+new=[-10000]
+res=''
+
+while arr[0]>new[-1] or arr[-1]>new[-1]:
+    if arr[0]>arr[-1]: # 왼쪽이 더 큰 경우
+        tmp=arr.pop()
+        if tmp>new[-1]:
+            new.append(tmp)
+            res+='R'
+        
+    elif arr[0]<arr[-1]:
+        tmp=arr.pop(0)
+        if tmp>new[-1]:
+            new.append(tmp)
+            res+='L'
+
+    else:
+        break
+        
+new.pop(0)
+
+
+print(new)
+print(len(new))
+print(res)
+
+
+
+
+
+
+
+
+
+
+#  역수열 
+import random
+
+N=int(input())
+#arr=list(range(N+1))
+res=[0]*(N+1)
+arr=[5,3,4,0,2,1,1,0]
+arr.insert(0,0)
+print(arr)
+
+
+for i in range(1,N+1):
+    tmp=arr[i]
+    cnt=0
+    for j in range(1,N+1):
+        if (i>0 and i<res[j]) or res[j]==0:
+            cnt+=1
+            
+        if cnt==tmp+1:
+            res[j]=i
+            break
+            
+            
+res.pop(0)
+            
+print(res)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
