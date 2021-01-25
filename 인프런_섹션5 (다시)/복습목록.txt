@@ -1,0 +1,96 @@
+# 가장큰수 재 채점 *** 
+import sys
+
+num,m=map(int,input().split())
+
+num=list(map(int,str(num)))
+
+stack=[]
+for x in num:
+    while stack and m>0 and stack[-1]<x:
+        stack.pop()
+        m-=1
+    stack.append(x)
+    
+
+if m!=0:
+    stack=stack[:-m]
+    
+res=''.join(map(str,stack))
+print(res)
+
+
+
+
+
+
+
+
+
+
+# 쇠막대기
+
+
+s=input()
+
+stack=[]
+cnt=0
+
+for i in range(len(s)):
+    if s[i]=='(':
+        stack.append(s[i])
+        
+    else:
+        stack.pop()
+        if s[i-1]=='(':
+            cnt+=len(stack)
+            
+        else:
+            cnt+=1
+            
+print(cnt)
+
+
+
+
+
+
+
+
+#공주 구하기(큐 자료구조로 해결)
+
+n,k=map(int,input().split())
+queue=[]
+
+for i in range(1,n+1):
+    queue.append(i)
+    
+while n!=1:
+    for i in range(1,k+1):
+        if i!=k:
+            tmp=queue.pop(0)
+            queue.append(tmp)
+            
+        elif i==k:
+            queue.pop(0)
+            n-=1
+            
+            
+
+print(int(queue[0]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
