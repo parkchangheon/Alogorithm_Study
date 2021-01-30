@@ -1,0 +1,117 @@
+# 단어찾기
+
+n=int(input())
+
+arr=[]
+
+for i in range(n):
+    arr.append(input())
+    
+print(arr)
+use=[]
+for i in range(n-1):
+    use.append(input())
+    
+i=0
+while len(arr)!=1:
+    if arr[i] in use:
+        arr.pop(i)
+        
+    else:
+        print(arr[i])
+        break
+        
+
+
+
+
+
+
+# Anagram (아나그램)
+
+a=input()
+b=input()
+flag=0
+
+for i in range(len(a)):
+    tmp=a[i]
+    cnt_1=a.count(tmp)
+    cnt_2=b.count(tmp)
+    
+    if cnt_1!=cnt_2:
+        flag=1
+        break
+    
+    
+    
+if flag==1:
+    print("No")
+    
+if flag==0:
+    print("YES")
+
+
+
+
+
+
+
+
+# 최소힙
+
+a=int(input())
+arr=[]
+arr.append(a)
+tmp=0
+res=[]
+while tmp!=-1:
+    tmp=int(input())
+    
+    
+    if tmp==-1:
+        break
+        
+    elif tmp==0:
+        arr.sort()
+        res.append(arr.pop(0))
+        
+    else:
+        arr.append(tmp)
+        
+        
+
+print(res)
+    
+    
+
+
+
+
+
+
+
+# 최대힙
+
+a=int(input())
+arr=[]
+arr.append(a)
+tmp=0
+res=[]
+while tmp!=-1:
+    tmp=int(input())
+    
+    
+    if tmp==-1:
+        break
+        
+    elif tmp==0:
+        arr.sort(reverse=True)
+        res.append(arr.pop(0))
+        
+    else:
+        arr.append(tmp)
+        
+        
+
+print(res)
+
