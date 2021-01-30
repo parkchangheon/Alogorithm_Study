@@ -50,3 +50,47 @@ while True:
     print(index, count)
     
 print(count)
+
+
+
+
+
+
+
+
+
+
+# 교육과정 설계 (뭐가 문제?)
+
+ess=list(map(str,input().split()))
+n=int(input())
+arr=[]
+for i in range(n):
+    arr.append(input())
+    
+flag=0
+print(arr)
+tmp=ess
+
+for i in range(n):
+    for j in range(len(arr[i])):
+        
+        if arr[i][j] in ess:
+            temp=ess.pop(0)
+            print(temp)
+            if arr[i][j] != temp:
+                flag=1
+                break
+                
+
+        
+        
+    if flag==1:
+        print('No')
+
+    if flag==0:
+        print("Yes")
+
+    flag=0
+    ess=tmp
+            
