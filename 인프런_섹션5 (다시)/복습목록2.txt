@@ -1,0 +1,52 @@
+# 응급실
+import random
+
+n,m=map(int,input().split())
+
+#arr=[60, 50, 70, 80, 90]
+
+arr=[60,60,90,60,60,60]
+#arr=[63, 53, 87, 91, 83, 72, 83, 92, 63, 68, 88, 74, 51, 82, 89]
+index=m
+count=0
+flag=0
+
+while True:
+    
+    
+    if index==0:
+        tmp=arr.pop(index)
+        for i in range(len(arr)):
+            if tmp<arr[i]:
+                arr.append(tmp)
+                index=len(arr)-1
+                break
+                
+            elif i==len(arr)-1 and tmp>=arr[i]:
+                count+=1
+                flag=1
+                break
+    
+        
+    else:
+        tmp=arr.pop(0)
+        for i in range(len(arr)):
+            if tmp<arr[i]:
+                arr.append(tmp)
+                index-=1
+                break
+                
+            elif i==len(arr)-1 and tmp>=arr[i]:
+                count+=1
+                index-=1
+                break
+        
+        
+    
+    
+    
+    if flag==1:
+        break
+    print(index, count)
+    
+print(count)
