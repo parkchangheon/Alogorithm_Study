@@ -60,7 +60,7 @@ print(count)
 
 
 
-# 교육과정 설계 (뭐가 문제?)
+# 교육과정 설계 (뭐가 문제?) =>  입력방식만 바꾸면 됨
 
 ess=list(map(str,input().split()))
 n=int(input())
