@@ -1,0 +1,92 @@
+#재귀함수를 이용한 이진수 출력
+arr=[]
+def jae(x):
+    if x>=2:
+        tmp=x%2
+        x=int(x/2)
+        arr.append(tmp)
+        jae(x)
+        
+    else:
+        arr.append(x)
+        
+    return x
+    
+    
+    
+    
+a=int(input())
+jae(a)
+string=""
+
+
+for i in range(len(arr)-1,-1,-1):
+    string+=str(arr[i])
+    
+
+print(arr)
+print(string)
+
+
+
+
+
+
+
+
+# 이진트리 순회(깊이 우선 탐색)
+# 재귀함수를 이용 + 스택의 개념으로 접근
+# 전위순회방식
+def DFS(v):
+    if v>7:
+        return
+    else:
+        print(v,end='')
+        DFS(v*2)   # 왼쪽 노드 호출
+        DFS(v*2+1) # 오른쪽 노드 호출
+        
+DFS(1)
+        
+
+
+
+
+
+
+# 중위순회방식
+def DFS(v):
+    if v>7:
+        return
+    else:
+        
+        DFS(v*2)   # 왼쪽 노드 호출
+        print(v,end='')
+        DFS(v*2+1) # 오른쪽 노드 호출
+        
+DFS(1)
+
+
+
+
+
+
+# 후위순회방식
+def DFS(v):
+    if v>7:
+        return
+    else:
+        
+        DFS(v*2)   # 왼쪽 노드 호출
+        DFS(v*2+1) # 오른쪽 노드 호출
+        print(v,end='')
+
+        
+DFS(1)
+        
+
+
+
+
+
+
+
