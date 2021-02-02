@@ -1,0 +1,71 @@
+# 합이 같은 부분집합 (DFS: 아마존 인터뷰)
+import sys
+
+def DFS(l,s):
+    if l==N:
+        if s==(hap-s):
+            print("yes")
+            sys.exit(0)
+
+        
+    
+    else:
+        DFS(l+1,s+arr[l])
+        DFS(l+1,s)
+
+
+
+
+N=int(input())
+
+arr=list(map(int,input().split()))
+hap=sum(arr)
+
+DFS(0,0)
+print("no")
+
+
+
+
+
+
+
+### 초기 답 ####
+#오답...
+
+# 합이 같은 부분집합 (DFS: 아마존 인터뷰)
+
+def DFS(v):
+    if v==arr[N-1]:
+        for i in range(N):
+            if ch[i]==1:
+                tmp.append(ch[i])
+                
+        
+        if hap-sum(tmp)==sum(tmp):
+            print("Yes")
+            return
+                
+        
+    else:
+        ch[arr[v]]=1
+        DFS(arr[v+1])
+        
+        ch[arr[v]]=0
+        DFS(arr[v+1])
+            
+    
+        
+    
+    
+        
+tmp=[]
+
+N=int(input())
+
+arr=list(map(int,input().split()))
+hap=sum(arr)
+ch[0]*(arr[N])
+#v=0
+
+DFS(0)
