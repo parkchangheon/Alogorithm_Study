@@ -1,0 +1,29 @@
+# 바둑이 승차(DFS)
+def DFS(l,s,ts):
+    global maxi #전역변수임을 알린다. 함수는 먼저 지역변수임을 확인하기 때문
+    if s>c:    # 넘어갈때 커트...
+        return
+    if s+(total-ts)<maxi: # 계산했을때, 나중에 남은 바둑이 무게합 가망x 포기
+        return
+    
+    if l==n:
+        if s<=c:
+            if s>maxi:
+                maxi=s
+
+        
+    else:
+        DFS(l+1,s+arr[l],ts+arr[l])
+        DFS(l+1,s,ts+arr[l])
+            
+    
+
+c,n=map(int,input().split())
+arr=[]
+
+for i in range(n):
+    arr.append(int(input()))
+total=sum(arr)
+maxi=-1
+DFS(0,0,0)
+print(maxi)
