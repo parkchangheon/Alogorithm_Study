@@ -1,0 +1,23 @@
+#동전교환 (DFS - 다시하기)
+
+def DFS(L,s):
+    global res
+    if L>=res:
+        return
+    if s>m:
+        return
+    elif s==m:
+        if L<res:
+            res=L
+    else:
+        for i in range(n):
+            DFS(L+1,s+a[i])
+            
+            
+n=int(input())
+a=list(map(int,input().split()))
+m=int(input())
+res=214700000
+a.sort(reverse=True)
+DFS(0,0)
+print(res)
