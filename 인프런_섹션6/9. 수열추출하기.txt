@@ -83,7 +83,19 @@ DFS(n,f):
     if left<=0 or right<=0:
         return 
     
-    while 
+    while left<=f-n-2:
+        DFS(n+1,left)
+        DFS(n+1,right)
+        
+        left+=1
+        right-=1
+        
+        if tmp[0]<res[0]:
+            res=tmp
+            
+        tmp=[]
+        for i in range(F+1):
+            ch[i]=0
 
 
 
@@ -94,5 +106,4 @@ mini=99999
 res=[]
 tmp=[]
 DFS(1,F)
-
 
