@@ -1,0 +1,98 @@
+# 수열 추측하기
+# 1차시도
+DFS(n,f):
+    global i
+    global tmp
+    global ch
+    
+    
+    if ch[f]==1:
+        return
+    
+    else:
+        if n==1:
+            if ch[f]!=1:
+                tmp.append(f)
+                return
+            else:
+                return
+
+        if i==n:
+            left=n
+            right=f-n
+
+        else:
+            left=n-2
+            right=f-(n-2)
+
+
+        if left<0 or left<1 or right<0 or right<1:
+            return
+
+        while left<right:
+            DFS(n-1,left)
+            DFS(n-1,right)
+            
+            if tmp.count(1)!=N:
+                ch=[0]*(F+1)
+
+            left+=1
+            right-=1
+
+            if tmp[1]<res[1]:
+                res=tmp
+
+            tmp=[]
+
+
+
+N,F=map(int,input().split())
+arr=[]
+ch=[0]*(F+1)
+ch[F]=1
+mini=99999
+res=[]
+tmp=[]
+i=N
+DFS(N,F)
+
+
+
+
+=======2차시도===========
+
+# 수열 추측하기
+DFS(n,f):
+    global N
+    if f<0:
+        return
+    
+    if n==1:
+        left=n
+        right=f-n
+        
+        
+    elif n>1 and n<N:
+        left=n-2
+        right=f-n-2
+        
+        
+    elif n==N:
+        
+    
+    if left<=0 or right<=0:
+        return 
+    
+    while 
+
+
+
+N,F=map(int,input().split())
+ch=[0]*(F+1)
+ch[F]=1
+mini=99999
+res=[]
+tmp=[]
+DFS(1,F)
+
+
