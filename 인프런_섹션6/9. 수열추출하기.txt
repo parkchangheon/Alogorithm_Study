@@ -107,3 +107,45 @@ res=[]
 tmp=[]
 DFS(1,F)
 
+
+
+
+
+
+
+
+
+====================답안================================
+# 수열 추측하기
+
+import sys
+
+def DFS(L,s):
+    global flag
+    if L==n and s==f:
+        for x in p:
+            print(x,end=' ')
+        sys.exit()
+            
+    else:
+        for i in range(1,n+1):
+            if ch[i]==0:
+                ch[i]=1
+                p[L]=i
+                DFS(L+1,s+(p[L]*b[L]))
+                ch[i]=0
+        
+
+n,f=map(int,input().split())
+p=[0]*n
+b=[1]*n
+flag=0
+ch=[0]*(f+1)
+
+# 거듭제곱 공식의 원리로 문제를 풀어보았다
+for i in range(1,n):
+    b[i]=b[i-1]*(n-i)//i
+    
+    
+    
+DFS(0,0)
