@@ -1,0 +1,95 @@
+====================중간풀이====================
+
+
+#최대점수 구하기
+def DFS(i,s,h):
+    global hap
+    global flag
+    
+    if i>=m:
+        flag=1
+        return
+    
+    if s>n:
+        return
+    
+    elif:s==n and i==m:
+            hap=h
+            return
+        
+    
+    else:
+        for x in range(i,m):
+            DFS(x+1,s+arr[x][1],h+arr[x][0])
+            
+            if flag==1:
+                if hap<h:
+                    hap=h
+                    
+                flag=0
+            
+    
+    
+    
+    
+    
+
+    
+    
+
+m,n=map(int,input().split())
+
+arr=[]
+for i in range(m):3
+    tmp=[]
+    tmp=list(map(int,input().split()))
+    arr.append(tmp)
+    
+arr.sort(key=lambda x:x[1])
+print(arr)
+hap=0
+flag=0
+DFS(0,0,0)
+
+
+
+
+#최대점수 구하기
+
+def DFS(L,s,t):
+    global res
+    if t>n:
+        return
+    
+    if L==n:
+        if s>res:
+            res=s
+            
+    else:
+        DFS(L+1,s+pv[L],t+pt[L])
+        DFS(L+1,pv,pt)
+
+        
+        
+
+m,n=map(int,input().split())
+
+pv=list() #문제 점수
+pt=list() #문제 시간
+
+for i in range(m):
+    a,b=map(int,input().split())
+    pv.append(a)
+    pt.append(b)
+res=-2100
+DFS(0,0,0)
+print(res)
+
+
+
+
+
+
+
+
+==========================
