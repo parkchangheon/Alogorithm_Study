@@ -1,0 +1,13 @@
+# 인접행렬 (가중치 방향그래프)
+
+n,m=map(int,input().split())
+arr=[]
+res=[[0]*n for i in range(n)]
+print(res)
+
+for i in range(m):
+    tmp=[]
+    tmp=list((map(int,input().split())))
+    res[tmp[0]-1][tmp[1]-1]=tmp[2]
+    
+print(res)
