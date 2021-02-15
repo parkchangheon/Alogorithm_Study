@@ -1,0 +1,27 @@
+# 수들의 조합 
+def DFS(n,i):
+    global cnt
+    print(n,i,res)
+    if n==K:
+        tmp=sum(res)
+        if tmp%M==0:
+            cnt+=1
+            return
+        
+        
+    else:
+        for j in range(i,N):
+            res.append(arr[j])
+            DFS(n+1,j+1)
+            res.pop()
+        
+        
+    
+    
+N,K=map(int,input().split())
+arr=list(map(int,input().split()))
+M=int(input())
+cnt=0
+res=[]
+DFS(0,0)
+print(cnt)
