@@ -1,0 +1,87 @@
+# 최대 점수 구하기 (DFS)
+
+def DFS(idx,t_hap,s_hap):
+    global max_score
+    
+    print(idx,t_hap,s_hap)
+    
+    if idx==N:
+        if t_hap<=M:
+                max_score=s_hap  # 인덱스를 전부 사용했으므로 최대값
+                return
+
+    else:                 #인덱스 값이 N보다 작을때
+        if(t_hap>M):      #
+            return
+        
+        elif(t_hap==M):
+            return
+            
+        else:
+            for i in range(idx,N):
+                tmp.append(score[i])
+                DFS(idx+1,t_hap+time[i],sum(tmp))
+                tmp.pop(0)
+            
+    
+
+N,M=map(int,input().split())  # n=문제 갯수, m=제한시간
+
+#점수,제한시간
+score=[0]*(N)
+time=[0]*(N)
+
+max_score=0
+tmp_time=0
+tmp=[]
+
+
+for i in range(N):
+    score[i],time[i]=map(int,input().split())
+    
+
+DFS(0,0,0)
+print(max_score)
+
+
+
+==============================================
+
+정답
+
+# 최대 점수 구하기 (DFS)
+#부분집합을 이용하여 문제 풀기
+
+def DFS(idx,t_hap,s_hap):
+    global max_score
+    
+    if t_hap>M:
+        return
+    
+    if idx==N:
+        if s_hap>max_score:
+            max_score=s_hap
+
+    else:                 
+        DFS(idx+1, t_hap+time[idx], s_hap+score[idx])
+        DFS(idx+1, t_hap, s_hap)
+            
+    
+
+N,M=map(int,input().split())  # n=문제 갯수, m=제한시간
+
+#점수,제한시간
+score=[0]*(N)
+time=[0]*(N)
+
+max_score=0
+tmp_time=0
+tmp=[]
+
+
+for i in range(N):
+    score[i],time[i]=map(int,input().split())
+    
+
+DFS(0,0,0)
+print(max_score)
