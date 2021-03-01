@@ -1,0 +1,63 @@
+# 양팔저울
+
+def DFS(i,idx):
+    global ch
+
+    if i==s+1:
+        return
+    
+        
+    else:
+        if ch[i]==1:
+            DFS(i+1)
+
+        else:
+            for j in range(k):
+            DFS(i+1,idx+1)
+            DFS(i+1,idx)
+            
+                
+            
+    
+k=int(input())
+arr=list(map(int,input().split()))
+
+s= sum(arr)
+
+ch=[0]*(s+1)
+DFS(1,0)
+print(ch.count(0)-1)
+
+
+
+
+
+
+
+
+
+# 양팔저울
+
+def DFS(i,hap):
+    global res
+    if i==k:
+        if 0<hap and hap<=s:
+            res.add(hap) 
+    else:
+        DFS(i+1,hap+arr[i])
+        DFS(i+1,hap-arr[i])
+        DFS(i+1,hap)
+   
+            
+    
+k=int(input())
+arr=list(map(int,input().split()))
+s= sum(arr)
+res=set() # 중복 제거
+DFS(0,0)
+print(s-len(res))
+
+
+
+
+
