@@ -1,0 +1,30 @@
+T=int(input())
+
+for i in range(T):
+    x1,y1,r1,x2,y2,r2=map(int,input().split())
+    
+    bd=((x1-x2)**2+(y1-y2)**2)
+
+    hap=(r1+r2)**2
+    sub=(r1-r2)**2
+    
+    
+    if bd==0:
+        if r1==r2:
+            print(-1)
+        else:
+            print(0)
+            
+    else:
+        if bd<hap and bd>sub:
+            print(2)
+            
+        elif bd==hap or bd==sub:
+            print(1)
+            
+        else:
+            print(0)
+
+
+// 처음에는 예외 처리해주는 것이 어려웠지만
+// 내접 외접으로 접근하면 쉽게 풀 문제.

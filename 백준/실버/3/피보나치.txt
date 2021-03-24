@@ -1,0 +1,56 @@
+내가 푼 방법
+
+def fibo(n):
+    global cnt0
+    global cnt1
+    
+    if n==0:
+        cnt0+=1
+        return 0
+    elif n==1:
+        cnt1+=1
+        return 1
+    else:
+        return fibo(n-1)+fibo(n-2)
+    
+    
+T=int(input())
+
+tmp=[0]*T
+
+for i in range(T):
+    n=int(input())
+    tmp[i]=n
+    
+    
+for i in range(T):
+    cnt0=0
+    cnt1=0
+    fibo(tmp[i])
+    print(cnt0,cnt1)
+
+글로벌로 풀었는데 자꾸 런타임 에러 뜸;;
+
+
+
+
+
+
+찾아본 방법 ) 
+
+t=int(input())
+
+while t:
+    z=[1,0]
+    o=[0,1]
+    n=int(input())
+    
+    for i in range(2,n+1):
+        z.append(z[i-1]+z[i-2])
+        o.append(o[i-1]+o[i-2])
+        
+    print(z[n],o[n])
+    t-=1
+
+// 별차이는 없어 보인다만 배열로 푸는것이 좀더 빨랐나봄. 단 미리 값을 설정하고 append 하면서 해당 인덱스에 있는 값을 조회하게끔 한다...
+솔직히 왜 굳이 방법을 하나로 국한하는지 이해 안가는 백준 알고뤼즘.
