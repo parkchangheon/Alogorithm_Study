@@ -1,0 +1,61 @@
+n = int(input())
+a = list(input())
+a_len = len(a)
+for i in range(n - 1):
+    b = list(input())
+    for j in range(a_len):
+        if a[j] != b[j]:
+            a[j] = '?'
+print(''.join(a))
+
+
+
+
+
+
+
+
+
+N=int(input())
+s_len=0
+
+mask=''
+res=''
+result=''
+
+for i in range(N):
+    tmp=input()  #새로운 문자열 입력 
+    
+    
+    if i==0: #문자열 길이 정의 
+        s_len=len(tmp)
+        mask=tmp
+        mask=list(mask)
+        for i in range(s_len):
+            res+='?'
+            res=list(res)
+        
+    else:
+        if s_len!=len(tmp):
+            break
+            
+            
+        for i in range(s_len):
+            
+            if tmp[i]==mask[i]:
+                res[i]=tmp[i]
+                
+            else:
+                if res[i]=='?':
+                    continue
+                    
+                else:
+                    res[i]='?'
+                    
+        mask=res
+          
+
+for i in range(s_len):
+    result+=res[i]
+    
+print(result)
