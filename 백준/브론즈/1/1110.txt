@@ -1,0 +1,30 @@
+N=list(map(int,input()))
+if len(N)==1:
+    N.insert(0,0)
+    
+cnt=0
+tmp=[0,0]
+if tmp[0]==N[0] and tmp[1]==N[1]:
+    cnt+=1
+
+while tmp[0]!=N[0] or tmp[1]!=N[1]:
+    if cnt==0:
+        tmp[0]=N[1]
+        tmp[1]=(N[1]+N[0])%10
+        
+    else:
+        n_tmp=[0,0]
+        n_tmp[0]=tmp[1]
+        n_tmp[1]=(tmp[1]+tmp[0])%10
+        
+        tmp[0]=n_tmp[0]
+        tmp[1]=n_tmp[1]
+    
+    
+    
+    cnt+=1
+    
+
+    
+print(cnt)
+    
