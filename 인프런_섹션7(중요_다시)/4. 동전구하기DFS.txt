@@ -1,0 +1,46 @@
+# 맞는지 확신 x 집가서 다시 해보기
+
+def DFS(hap,pp,nn):
+
+    l=len(pp)
+
+    if hap==T:
+        tmp=[]
+        for i in range(l):
+            tmp+=([N[i]-nn[i]]*pp)
+
+        tmp=tmp.sort()
+        if len(result)==0:
+            result.append(tmp)
+        else:
+            for i in range(len(result)):
+                if result[i]==tmp:
+                    break
+            else:
+                result.append(tmp)
+
+    elif hap<T:
+        for i in range(l):
+            if nn[i]!=0:
+                nn[i]-=1
+                hap+=pp[i]
+                DFS(hap,pp,nn)
+                nn[i]+=1
+
+    else:
+        return
+
+
+T=int(input())
+k=int(input())
+P=[]
+N=[]
+result=[]
+
+for i in range(k):
+    p,n=map(int,input().split())
+
+    P.append(p)
+    N.append(n)
+
+DFS(0,P,N)
