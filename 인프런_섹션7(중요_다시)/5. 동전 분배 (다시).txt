@@ -1,0 +1,30 @@
+def DFS(l):
+    global result
+    if l==N:
+        cha=max(money)-min(money)
+        if cha<result:
+            tmp=set() # set 은 중복을 허용하지 않음
+            for x in money:
+                tmp.add(x)
+            if len(tmp)==3:
+                result=cha
+
+    else:
+        for i in range(3):
+            money[i]+=coin[L]
+            DFS(L+1)
+            money[i]-=coin[L]
+
+
+
+N=int(input())
+
+coin=[]
+result=2**31
+tmp=[]
+money=[0]*3
+
+for _ in range(N):
+    coin.append(int(input())
+
+DFS(0)
