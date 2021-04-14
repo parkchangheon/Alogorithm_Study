@@ -1,0 +1,77 @@
+def DFS(x,y,a):
+    global count
+    
+    if y==n-1:
+        if x==m-1:
+            if a[x][y]==1:
+                a[x][y]=0
+                DFS(x-1,y,a) #왼쪽
+                count+=1
+                
+            else: #그냥 0이면
+                
+                
+                
+                
+                
+
+        else:
+            if a[x][y]==1:
+                a[x][y]=0
+                DFS(x+1,y,a) #오른쪽
+                DFS(x,y+1,a) #아래
+                DFS(x-1,y,a) #왼쪽
+                count+=1
+                
+            else:
+        
+        
+        
+    else:
+        if x==m-1:
+            if a[x][y]==1:
+                a[x][y]=0
+                DFS(x,y+1,a) #아래
+                DFS(x-1,y,a) #왼쪽
+                count+=1
+                
+            else:
+
+        else:
+            if a[x][y]==1:
+                a[x][y]=0
+                DFS(x+1,y,a) #오른쪽
+                DFS(x,y+1,a) #아래
+                DFS(x-1,y,a) #왼쪽
+                count+=1
+                
+            else:
+                
+        
+
+T=int(input())
+
+for i in range(T):
+    count=0
+    m,n,k=map(int,input().split())
+
+    arr=[]
+    
+    for i in range(m):
+        for j in range(n):
+            tmp=[0]*n
+            arr.append(tmp)
+            
+    
+    for i in range(k):
+        a,b=map(int,input().split())
+        arr[a][b]=1
+    
+    DFS(0,0,arr)
+    
+    print(count)
+    
+    
+
+
+BFS로 다시 풀기...
