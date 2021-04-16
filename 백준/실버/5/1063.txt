@@ -1,0 +1,44 @@
+#열 A~H
+#행 8~1
+
+dx=[1,-1,0,0,1,-1,1,-1]
+dy=[0,0,1,-1,-1,-1,1,1]
+move=['R','L','B','T','RT','LT','RB','LB']
+alpha=['A','B','C','D','E','F','G','H']
+
+k,s,n=map(str,input().split())
+k_pos=[alpha.index(k[0]),8-int(k[1])]
+s_pos=[alpha.index(s[0]),8-int(s[1])]
+
+n=int(n)
+for i in range(n):
+
+    command=move.index(input())
+    
+    kx=k_pos[0]+dx[command]
+    ky=k_pos[1]+dy[command]
+    
+    if kx<0 or ky<0 or kx>7 or ky>7:
+        continue
+        
+    if kx==s_pos[0] and ky==s_pos[1]:
+        sx=s_pos[0]+dx[command]
+        sy=s_pos[1]+dy[command]
+        
+        if sx<0 or sy<0 or sx>7 or sy>7:
+            continue
+            
+        s_pos[0]=sx
+        s_pos[1]=sy
+        
+    k_pos[0]=kx
+    k_pos[1]=ky
+    
+    
+k_end=alpha[k_pos[0]]+str(8-k_pos[1])
+s_end=alpha[s_pos[0]]+str(8-s_pos[1])
+
+
+
+print(k_end)
+print(s_end)
