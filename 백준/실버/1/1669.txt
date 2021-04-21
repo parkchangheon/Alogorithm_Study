@@ -1,0 +1,21 @@
+# 멍멍이 쓰다듬기
+
+x,y=map(int,input().split())
+
+if x<=y:
+    if x==y:
+        print(0)
+        
+    else:
+        n=int((y-x)**0.5)
+        
+        if n**2==y-x:
+            print(2*n-1)
+            
+        else:
+            m=(y-x)-n**2
+            if m<=n:
+                print(2*n)
+            else:
+                print(2*n+1)
+        
