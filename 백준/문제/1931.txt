@@ -1,0 +1,23 @@
+N=int(input())
+arr=[]
+cnt=0
+res=[]
+
+for i in range(N):
+    start,end=map(int,input().split())
+    tmp=(start,end)
+    arr.append(tmp)
+    
+
+arr.sort(key=lambda x : (x[1],x[0])) #x의 1번 인덱스에 우선순위를 주어라
+
+for i in range(N):
+    if len(res)==0:
+        res.append(arr[i])
+        
+    else:
+        if arr[i][0]>=res[-1][1]:
+            res.append(arr[i])
+            
+print(len(res))
+
