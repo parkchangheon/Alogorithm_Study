@@ -1,0 +1,41 @@
+N=int(input())
+
+arr=list(map(int,input().split()))
+
+check=[0]*N
+
+for i in range(N):
+    tmp=arr[i]
+    
+    if i!=0:
+        for j in range(i-1,-1,-1):
+            if tmp<=arr[j]:
+                idx=j
+                check[i]=j+1
+                
+                break
+                
+    print(check[i],end=' ')
+
+
+내가 푼 방식은 for문을 2번 사용하며, 시간복잡도를 n^2로 만든것이다.
+반면 아래는 스택을 이용하여, 그러한 문제를 없앴다...?
+
+
+N=int(input())
+arr=list(map(int,input().split()))
+stack=[]
+res=[0]*N
+
+for i in range(N):
+    tmp=arr[i]
+    while stack and arr[stack[-1]]<tmp:
+        stack.pop()
+        
+    if stack:
+        res[i]=stack[-1]+1
+        
+    stack.append(i)
+    
+for i in range(N):
+    print(res[i],end=' ')
