@@ -1,0 +1,70 @@
+#송아지 찾기 
+
+s,e=map(int,input().split())
+
+d=abs(s-e)
+new_d=d
+    
+case_a=0
+case_b=0
+
+while new_d%5!=0:
+    case_a+=1
+    new_d+=1
+
+while new_d!=0:
+    if new_d>=5:
+        new_d-=5
+        case_a+=1
+    
+while d!=0:
+    if d>=5:
+        d-=5
+        case_b+=1
+        
+    else:
+        case_b+=d
+        d=0
+        
+if case_a<case_b:
+    print(case_a)
+    
+else:
+    print(case_b)
+
+
+
+================================
+
+#bfs 방법으로 풀기
+
+# 큐를 이용해서 풀이.
+
+from collections import deque
+
+Max=100000
+ch=[0]*(Max+1)
+dis=[0]*(Max+1)
+
+n,m=map(int,input().split())
+ch[n]=1
+dis[n]=0
+dq=deque()
+dq.append(n)
+
+while dq:
+    now=dq.popleft()
+    if now==m:
+        break
+    
+    for nex in (now-1,now+1,now+5):
+        if nex>0 and nex<=Max:
+            if ch[nex]==0:
+                dq.append(nex)
+                ch[nex]=1
+                dis[nex]=dis[now]+1
+                
+                
+print(dis[m])
+
+
